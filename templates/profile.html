@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>User Profile</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: linear-gradient(to right, #f8fafc, #eef2f7);
+            margin: 0;
+            padding: 40px 20px;
+        }
+
+        .container {
+            max-width: 720px;
+            background: white;
+            padding: 32px;
+            margin: auto;
+            border-radius: 14px;
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
+        }
+
+        h2 {
+            color: #1f2d3d;
+            margin-bottom: 24px;
+            text-align: center;
+        }
+
+        .info-box {
+            background: #f8fafc;
+            border: 1px solid #e2e8f0;
+            border-radius: 10px;
+            padding: 18px 20px;
+            margin-bottom: 20px;
+        }
+
+        p {
+            line-height: 1.8;
+            margin: 8px 0;
+            color: #334155;
+        }
+
+        strong {
+            color: #0f172a;
+        }
+
+        .btn {
+            display: inline-block;
+            background: #2563eb;
+            color: white;
+            padding: 10px 16px;
+            text-decoration: none;
+            border-radius: 8px;
+            font-weight: 600;
+            margin-top: 10px;
+        }
+
+        .btn:hover {
+            background: #1d4ed8;
+        }
+
+        .bottom-link {
+            margin-top: 24px;
+            text-align: center;
+        }
+
+        .bottom-link a {
+            color: #2563eb;
+            text-decoration: none;
+            font-weight: 500;
+        }
+
+        .bottom-link a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>User Information</h2>
+
+        <div class="info-box">
+            <p><strong>Username:</strong> {{ user['username'] }}</p>
+            <p><strong>First Name:</strong> {{ user['firstname'] }}</p>
+            <p><strong>Last Name:</strong> {{ user['lastname'] }}</p>
+            <p><strong>Email:</strong> {{ user['email'] }}</p>
+            <p><strong>Address:</strong> {{ user['address'] }}</p>
+
+            {% if user['filename'] %}
+                <p><strong>Uploaded File:</strong> {{ user['filename'] }}</p>
+                <p><strong>Word Count:</strong> {{ user['wordcount'] }}</p>
+                <a class="btn" href="/download/{{ user['filename'] }}">Download File</a>
+            {% else %}
+                <p><strong>No file uploaded.</strong></p>
+            {% endif %}
+        </div>
+
+        <div class="bottom-link">
+            <a href="/login">Go to Re-Login Page</a>
+        </div>
+    </div>
+</body>
+</html>

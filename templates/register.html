@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>User Registration</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: linear-gradient(to right, #f4f6fb, #eef2f7);
+            margin: 0;
+            padding: 40px 20px;
+        }
+
+        .container {
+            max-width: 620px;
+            background: #ffffff;
+            padding: 32px;
+            margin: auto;
+            border-radius: 14px;
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
+        }
+
+        h2 {
+            margin-bottom: 25px;
+            color: #1f2d3d;
+            text-align: center;
+        }
+
+        label {
+            display: block;
+            margin: 12px 0 6px;
+            font-weight: 600;
+            color: #334155;
+        }
+
+        input, textarea {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #d6dbe3;
+            border-radius: 8px;
+            box-sizing: border-box;
+            font-size: 14px;
+            background: #fafbfd;
+        }
+
+        input:focus, textarea:focus {
+            outline: none;
+            border-color: #4f86f7;
+            box-shadow: 0 0 0 3px rgba(79, 134, 247, 0.15);
+            background: white;
+        }
+
+        textarea {
+            min-height: 90px;
+            resize: vertical;
+        }
+
+        .file-box {
+            margin-top: 8px;
+            margin-bottom: 20px;
+        }
+
+        button {
+            width: 100%;
+            background: #2563eb;
+            color: white;
+            border: none;
+            padding: 13px;
+            border-radius: 8px;
+            font-size: 15px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: background 0.2s ease;
+        }
+
+        button:hover {
+            background: #1d4ed8;
+        }
+
+        .link {
+            text-align: center;
+            margin-top: 18px;
+        }
+
+        .link a {
+            color: #2563eb;
+            text-decoration: none;
+            font-weight: 500;
+        }
+
+        .link a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>User Registration</h2>
+        <form action="/register" method="POST" enctype="multipart/form-data">
+            <label>Username</label>
+            <input type="text" name="username" required>
+
+            <label>Password</label>
+            <input type="password" name="password" required>
+
+            <label>First Name</label>
+            <input type="text" name="firstname" required>
+
+            <label>Last Name</label>
+            <input type="text" name="lastname" required>
+
+            <label>Email</label>
+            <input type="email" name="email" required>
+
+            <label>Address</label>
+            <textarea name="address" required></textarea>
+
+            <label>Upload Limerick (1).txt</label>
+            <div class="file-box">
+                <input type="file" name="limerick_file" accept=".txt">
+            </div>
+
+            <button type="submit">Register</button>
+        </form>
+
+        <div class="link">
+            <a href="/login">Already registered? Re-login here</a>
+        </div>
+    </div>
+</body>
+</html>
